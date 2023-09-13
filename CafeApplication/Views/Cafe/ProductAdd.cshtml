@@ -1,0 +1,73 @@
+﻿
+@model Product
+
+
+<section class="container position-absolute top-50 start-50 translate-middle">
+
+    <header> <center><spam style="color:#2373FA;font-family:Verdana;font-weight:lighter;font-size:30px">Add Product</spam></center> <!--Font ayarları--> </header>
+    <br />
+    <br />
+    <br />
+    <form asp-action="ProductAdd" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="@Model.ID"> @*ID yi görmediği için hata vermemesi adına bunu yazarız*@
+        @*<input type="hidden" asp-for="@Model.Type"> @*Ürünleri güncellerken farklı kategorilere göndermesin diye bunu yazarız*@
+
+        <center>
+            <!--center text i ortaladı 8 kolon ayarında otomatik ortaladı-->
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto border-3 ">
+                <label for="exampleFormControlInput1" class="form-label text-danger fw-bold">Choose Picture</label>
+                <input asp-for="@Model.File" type="file" id="formFile">
+            </div>
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto border-3">
+                <label for="exampleFormControlInput1" class="form-label text-danger fw-bold">Product Name</label>
+                <input asp-for="@Model.Name" class="form-control" maxlength="50" aria-label="ProductName" aria-describedby="basic-addon1">
+            </div>
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto">
+                <label for="validationCustom04" class="form-label text-danger fw-bold">Product Type</label>
+                <select asp-for="Type" class="form-select" id="validationCustom04" required>
+                    <option selected>Hot Drinks</option>
+                    <option value="1">Cold Drinks</option>
+                    <option value="2">Dessert</option>
+                    <option value="3">Food</option>
+                </select>
+            </div>
+
+
+            <h5></h5>
+
+
+            <div class="d-grid col-4 mx-auto border-3 ">
+                <label for="validationTextarea" class="form-label text-danger fw-bold">Description</label>
+                <textarea asp-for="@Model.Description" maxlength="299" id="validationTextarea"></textarea>
+            </div>
+
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto border-3 ">
+                <label for="validationTextarea" class="form-label text-danger fw-bold">Price</label>
+                <input asp-for="@Model.Price" class="form-control" maxlength="50" aria-label="Price" aria-describedby="basic-addon1">
+            </div>
+
+
+            <h5></h5>
+
+            <div class="d-grid col-2 mx-auto rounded-4">
+                <!--2 kolon ayarında otomatik ortaladı-->
+                <button class="btn btn-outline-success" type="submit">ADD</button>
+            </div>
+        </center>
+
+    </form>
+
+</section>

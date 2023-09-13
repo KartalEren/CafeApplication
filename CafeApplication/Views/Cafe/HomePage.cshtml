@@ -1,0 +1,82 @@
+﻿
+
+@{
+    List<Setting> homePage = (List<Setting>)ViewBag.HomePage;
+    string active = string.Empty, current = string.Empty;//courosel deki active-item kısmını tetiklemesi için bu şartları yazdık ve foreach içerisinde bunları if le vereceğiz.
+}
+<header>
+</header>
+<br />
+<br />
+
+
+<section>
+    @if (TempData["Error"] != null)//Eğer ki web sayfasında ürünlerin seçimi anında ürün yoksa Ana Sayfada Uyarı versin istiyorsak, ProductDetail(int? id) action undaki TempData["Error"] ürün yok hatasını if şartı ile (şuan denemek için orada tüm ürünleri if de null(yok) gösterdik o yüzden buradaki if de != null şartı vermek zorunda kaldık, normalde actionda if içinde !=null olup, buradaki if içinde!=null olursa bu uyarıyı ver demek gerekirdi.)hem CafeControllerdaki ProductDetail(int? id) Action sayfasında belirtiriz.Ve burada ana sayfada bootstrapten alert kodu alarak gene if içerisine <p> @TempData["Error"]</p> tag leri arasına hata şartını belirterek yazarız.
+    {
+        <div class="alert alert-primary bg-danger border border-danger" role="alert">
+            <p class="d-flex justify-content-center ">
+               
+                <h3 align="center" style="color:navy;">@TempData["Error"].ToString()
+                
+                    <div class="spinner-grow text-primary" role="status">
+                       
+                    </div>
+                
+                </h3>             
+            </p>
+           
+        </div>      
+
+    }
+
+</section>
+
+
+<section class="container position-absolute top-50 start-50 translate-middle">
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+
+            @for (int i = 0; i < homePage.Count; i++)
+            {
+                if (i == 0) { active = "active"; current = "true"; }
+
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="@i" class="@active" aria-current="@current" aria-label="@i"></button>
+            }
+        </div>
+
+
+
+        <div class="carousel-inner">
+            @foreach (var item in homePage)
+            {
+                active = string.Empty;
+                if (item == homePage[0]) { active = "active"; }
+
+                <div class="carousel-item @active" data-bs-interval="10000">
+                    <a href=@item.Link>
+
+                        <img src=@item.Value class="d-block w-100" alt="@item.Key" width="1200" height="500">
+
+                    </a>
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>@item.Description</h5>
+                    </div>
+                </div>
+
+            }
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </div>
+
+</section>
+

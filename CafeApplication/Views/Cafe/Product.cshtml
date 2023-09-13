@@ -1,0 +1,79 @@
+﻿
+@model Product
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<section class="container position-absolute top-50 start-50 translate-middle">
+
+    <header> <center><spam style="color:#2373FA;font-family:Verdana;font-weight:lighter;font-size:30px">Product Update</spam></center> <!--Font ayarları--> </header>
+    <br />
+    <br />
+    <br />
+    <form asp-action="ProductUpdate" method="post" enctype="multipart/form-data">
+
+        <input type="hidden" asp-for="@Model.ID"> @*ID yi görmediği için hata vermemesi adına bunu yazarız*@
+        @*<input type="hidden" asp-for="@Model.Type"> @*Ürünleri güncellerken farklı kategorilere göndermesin diye bunu yazarız*@
+        
+        <center>
+            <!--center text i ortaladı 8 kolon ayarında otomatik ortaladı-->
+
+            <div class="d-grid col-4 mx-auto border border-3 ">
+                <img src="@Model.ImagePath" width="300" height="300">
+            </div>
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto border border-3 ">
+                <input asp-for="@Model.File" type="file" id="formFile">
+            </div>
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto border border-3">
+                <input asp-for="@Model.Name" class="form-control" maxlength="50" aria-label="ProductName" aria-describedby="basic-addon1">
+            </div>
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto">
+                <label for="validationCustom04" class="form-label text-danger fw-bold"></label>
+                <select asp-for="Type" class="form-select border border-3" id="validationCustom04" required>
+                    <option selected>Hot Drinks</option>
+                    <option value="1">Cold Drinks</option>
+                    <option value="2">Dessert</option>
+                    <option value="3">Food</option>
+                </select>
+            </div>
+
+         
+            <h5></h5>
+
+
+            <div class="d-grid col-4 mx-auto border border-3 ">
+                <label for="validationTextarea" class="form-label"></label>
+                <textarea asp-for="@Model.Description" maxlength="299" id="validationTextarea"></textarea>
+            </div>
+
+
+            <h5></h5>
+
+            <div class="d-grid col-4 mx-auto border border border-3 ">
+                <input asp-for="@Model.Price" class="form-control" maxlength="50" aria-label="Price" aria-describedby="basic-addon1">
+            </div>
+
+
+            <h5></h5>
+
+            <div class="d-grid col-2 mx-auto rounded-4">
+                <!--2 kolon ayarında otomatik ortaladı-->
+                <button class="btn btn-outline-success" type="submit">UPDATE</button>
+            </div>
+           
+        </center>
+
+    </form>
+
+</section>

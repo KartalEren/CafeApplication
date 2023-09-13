@@ -1,0 +1,49 @@
+﻿
+@model List<Product>
+
+
+@{
+
+    IEnumerable<Product> products = (IEnumerable<Product>)ViewBag.Product;
+}
+
+
+
+@if (TempData["Error"] != null)
+{
+<h3 class="text-danger"> @TempData["Error"].ToString() </h3>
+}
+<section class="container border position-relative text-black form-control border-primary">
+    <h1 class="text-center">
+        <font size="15" face="Verdana">
+            Cold Drinks
+        </font>
+    </h1>
+</section>
+<section class="container form-control border-primary">
+    <ul class="d-flex flex-wrap justify-content-center list-group list-group-horizontal">
+
+        @foreach (var item in Model)
+        {
+            <li class="list-group-item">
+
+                <div class="card" style="width: 18rem;">
+
+                    <a asp-action="ProductDetail" asp-route-id="@item.ID">
+                        @*burada a tagi ile resmin üstüne tıklanınca detail action sayfasına yönlendiririz. ID ye göre ürünü de çekersek ProductDetail.cshtm linde o ürünü taşıyıp yeni sayfaya dinamik bir şekilde tek kod ile yeni sayfaya göndeririz.*@
+
+                    <img src="@item.ImagePath" class="card-img-top" alt="@item.Name" width="100" height="225">@*alt kısmına resimsiz dosyaların içeriği adı vs yazılır....*@
+                    <div class="card-body">
+                        <p class="card-text">@item.Name</p>
+
+                    </div>
+
+                    </a>
+
+                </div>
+
+            </li>
+        }
+
+    </ul>
+</section>

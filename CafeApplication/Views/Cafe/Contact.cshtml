@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<section class="container position-absolute top-50 start-50 translate-middle">
+    <center><spam style="color:#2373FA;font-family:Verdana;font-weight:lighter;font-size:30px">Contact Details</spam></center> <!--Font ayarları-->
+
+    <br /> <!--1 SATIR BOŞLUK BIRAKTIK-->
+
+    <form class="was-validated">
+       
+        <center><!--center text i ortaladı 8 kolon ayarında otomatik ortaladı-->
+            <div class="d-grid col-8 mx-auto">
+                <input type="text" class="form-control" maxlength="50" placeholder="FirstName" aria-label="FirstName" aria-describedby="basic-addon1" required>
+            </div>
+
+
+            <h5></h5><!--Burayı ad-soyad arasındaki boşluk eşit olsun diye, h5 tagi boyutundan yararlandım. Sadece satır arası mesafe için kullandım-->         
+
+
+            <div class="d-grid col-8 mx-auto"><!--8 kolon ayarında otomatik ortaladı-->
+                <input type="text" class="form-control" maxlength="50" placeholder="LastName" aria-label="LastName" aria-describedby="basic-addon1" required>
+            </div>
+
+
+
+            <div class="d-grid col-8 mx-auto"><!--8 kolon ayarında otomatik ortaladı-->            
+                <label for="exampleFormControlInput1" class="form-label"></label>
+                <input type="email" class="form-control" maxlength="50" id="exampleFormControlInput1" placeholder="E-Mail" required>
+            </div>
+
+
+         
+            <div class="d-grid col-8 mx-auto"><!--8 kolon ayarında otomatik ortaladı-->
+                <div class="form-group mt-2">
+                    <input type="text" class="form-control" maxlength="11" id="ec-mobile-number" aria-describedby="emailHelp" placeholder="Phone" required />
+                </div>
+            </div>
+
+
+    
+            <div class="d-grid col-8 mx-auto"><!--8 kolon ayarında otomatik ortaladı-->
+                <label for="validationTextarea" class="form-label"></label>
+                <textarea class="form-control" maxlength="299" id="validationTextarea" placeholder="Comment" required></textarea>
+            </div>
+
+
+            <br /> <!--1 SATIR BOŞLUK BIRAKTIK-->
+
+
+            <div class="d-grid col-4 mx-auto"> <!--4 kolon ayarında otomatik ortaladı-->
+                <button class="btn btn-outline-success" type="button">SUBMIT</button>
+            </div>
+        </center>
+
+    </form>
+
+</section>

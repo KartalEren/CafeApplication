@@ -1,0 +1,33 @@
+﻿
+@model Product
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    //Product product = (Product)ViewBag.Product;
+}
+
+
+<section class="container position-absolute top-50 start-50 translate-middle">
+
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-6">
+                <img src="@(Model.ImagePath)" class="img-fluid rounded-start" alt="@(Model.Name)">
+            </div>
+            <div class="col-6">
+                <div class="card-body">
+                    <h5 class="card-title text-center">@(Model.Name)</h5>
+                    <p class="card-text">@Model.Description</p>
+                    <p class="card-text">@Model.Price TL</p>
+                    <a asp-action="HomePage" class="btn btn-primary">Home</a>
+                    <a asp-action="Product" asp-route-id="@Model.ID" class="btn btn-primary">Update</a>
+                    <a asp-action="ProductDelete" asp-route-id="@Model.ID" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
